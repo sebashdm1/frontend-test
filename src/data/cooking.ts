@@ -1,4 +1,4 @@
-import type { CookingImage, CookingContent } from '../../types';
+import type { CookingImage, CookingContent } from '../types';
 
 export const cookingImages: CookingImage[] = [
   {
@@ -25,6 +25,4 @@ export const cookingContent: CookingContent = {
     title: 'THE PERFECT EGG',
     description: 'Keep water between 67 and 68°C for a flavourful, tender yolk'
   }
-};
-
- 
+}; 

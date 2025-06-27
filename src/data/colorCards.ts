@@ -1,5 +1,5 @@
-import type { ColorCard } from '../../types';
-import { COLORS } from '../../constants/colors';
+import type { ColorCard } from '../types';
+import { COLORS } from '../constants/colors';
 
 export const colorCardsData: ColorCard[] = [
   {

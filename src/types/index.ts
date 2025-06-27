@@ -8,6 +8,14 @@ export interface ColorCard {
   imagePath: string;
 }
 
+export interface ColorCardProps {
+  id: ColorType;
+  imagePath: string;
+  title: string;
+  description: string;
+  onImageClick: ImageClickHandler;
+}
+
 // Modal types
 export interface ImageModalProps {
   imageName: ColorType | null;

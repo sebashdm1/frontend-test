@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import type { ColorType, ImageClickHandler, ModalCloseHandler } from '../../types';
-import ImageModal from '../ImageModal';
-import { colorCardsData } from './data';
+import ImageModal from '../ImageModal/ImageModal';
+import ColorCard from './ColorCard';
+import { colorCardsData } from '../../data/colorCards';
 import './ColorsSection.scss';
 
 const ColorsSection = () => {
@@ -25,15 +26,14 @@ const ColorsSection = () => {
           
           <div className="card-list">
             {colorCardsData.map((card) => (
-              <div key={card.id} className="card">
-                <div className="card-image" onClick={() => handleImageClick(card.id)}>
-                  <img src={card.imagePath} alt={`${card.title} food items`} />
-                </div>
-                <div className="copy">
-                  <h3>{card.title}</h3>
-                  <p>{card.description}</p>
-                </div>
-              </div>
+              <ColorCard
+                key={card.id}
+                id={card.id}
+                imagePath={card.imagePath}
+                title={card.title}
+                description={card.description}
+                onImageClick={handleImageClick}
+              />
             ))}
           </div>
         </div>

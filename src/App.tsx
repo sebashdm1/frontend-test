@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import CookingSection from './components/CookingSection'
-import ColorsSection from './components/ColorsSection'
+import CookingSection from './components/CookingSection/CookingSection'
+import ColorsSection from './components/ColorsSection/ColorsSection'
 import './App.scss'
 
 function App() {
