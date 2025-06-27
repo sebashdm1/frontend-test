@@ -19,7 +19,7 @@
   --color-red-accent: #cf1430;
 }
 
-// Typography
+// Typography - Exact Zeplin specifications
 $font-family: 'Open Sans', sans-serif;
 $font-light: 300;
 $font-bold: 700;
@@ -93,14 +93,17 @@ body {
 }
 
 // =============================================================================
-// TYPOGRAPHY STYLES
+// TYPOGRAPHY STYLES - EXACT ZEPLIN SPECS
 // =============================================================================
 
 h1, h2 {
+  // Exact Zeplin specs: OpenSans-Light, 30px, 300 weight, 33px line-height, 1.5px letter-spacing
+  font-family: $font-family;
   font-size: 30px;
   font-weight: $font-light;
+  line-height: 33px;
   letter-spacing: 1.5px;
-  margin-bottom: 10px;
+  margin-bottom: 0; // Remove default margin, controlled by container
   
   @media (max-width: $breakpoint-sm) {
     font-size: 24px;
@@ -109,15 +112,21 @@ h1, h2 {
 }
 
 h3 {
+  // Exact Zeplin specs: OpenSans-Bold, 21px, 700 weight, 30px line-height
+  font-family: $font-family;
   font-size: 21px;
   font-weight: $font-bold;
+  line-height: 30px;
   
   @media (max-width: $breakpoint-sm) {
     font-size: 18px;
+    line-height: 26px;
   }
 }
 
 p {
+  // Exact Zeplin specs: OpenSans-Light, 21px, 300 weight, 30px line-height
+  font-family: $font-family;
   font-size: 21px;
   font-weight: $font-light;
   line-height: 30px;
@@ -128,13 +137,14 @@ p {
   }
 }
 
-// Red accent text
+// Red accent text - Exact Zeplin specs
 .text-red {
   color: var(--color-red-accent);
+  font-family: $font-family;
   font-size: 15px;
   font-weight: $font-bold;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  line-height: 21px;
+  text-align: left;
 }
 
 // HR styling
