@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import CookingSection from './components/CookingSection'
+import ColorsSection from './components/ColorsSection'
 
 function App() {
   useEffect(() => {
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="app">
       <CookingSection />
+      <ColorsSection />
     </div>
   )
 }

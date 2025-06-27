@@ -17,7 +17,7 @@ $font-bold: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 120px 0;
+  padding: 120px 0 30px 0;
 
   .cooking-container {
     max-width: $container-width;
@@ -103,14 +103,24 @@ $font-bold: 700;
         .call-out {
           margin-top: 30px;
 
-          h3 {
-            font-family: $font-family;
-            font-weight: $font-bold;
-            font-size: 15px;
-            line-height: 21px;
-            color: $accent-red;
-            margin: 0 0 10px 0;
-            text-align: left;
+          a {
+            text-decoration: none;
+            cursor: pointer;
+            
+            h3 {
+              font-family: $font-family;
+              font-weight: $font-bold;
+              font-size: 15px;
+              line-height: 21px;
+              color: $accent-red;
+              margin: 0 0 10px 0;
+              text-align: left;
+              transition: opacity 0.3s ease;
+              
+              &:hover {
+                opacity: 0.8;
+              }
+            }
           }
 
           > p {
@@ -126,7 +136,6 @@ $font-bold: 700;
     }
   }
 
-  // Responsive Design
   @media (max-width: 768px) {
     padding: 60px 20px;
 
