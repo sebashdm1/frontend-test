@@ -1,19 +1,15 @@
-import { useState } from 'react';
-import type { ColorType, ImageClickHandler, ModalCloseHandler } from '../../types';
+import type { ImageClickHandler } from '../../types';
+import { useImageModal } from '../../hooks/useImageModal';
 import ImageModal from '../ImageModal/ImageModal';
 import ColorCard from './ColorCard';
 import { colorCardsData } from '../../data/colorCards';
 import './ColorsSection.scss';
 
 const ColorsSection = () => {
-  const [selectedImage, setSelectedImage] = useState<ColorType | null>(null);
+  const { isModalOpen, selectedImage, openModal, closeModal } = useImageModal();
 
   const handleImageClick: ImageClickHandler = (imageName) => {
-    setSelectedImage(imageName);
-  };
-
-  const closeModal: ModalCloseHandler = () => {
-    setSelectedImage(null);
+    openModal(imageName);
   };
 
   return (
@@ -25,7 +21,7 @@ const ColorsSection = () => {
           </header>
           
           <div className="card-list" role="list" itemProp="itemListElement">
-            {colorCardsData.map((card, index) => (
+            {colorCardsData.map((card) => (
               <ColorCard
                 key={card.id}
                 id={card.id}
@@ -39,7 +35,11 @@ const ColorsSection = () => {
         </div>
       </div>
 
-      <ImageModal imageName={selectedImage} onClose={closeModal} />
+      <ImageModal 
+        isOpen={isModalOpen}
+        imageName={selectedImage} 
+        onClose={closeModal} 
+      />
     </section>
   );
 };

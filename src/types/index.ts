@@ -16,9 +16,10 @@ export interface ColorCardProps {
   onImageClick: ImageClickHandler;
 }
 
-// Modal types
+// Modal types - REFACTORED: No more null!
 export interface ImageModalProps {
-  imageName: ColorType | null;
+  isOpen: boolean;
+  imageName: ColorType;
   onClose: () => void;
 }
 
