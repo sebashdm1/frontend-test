@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import CookingSection from './components/CookingSection'
 import ColorsSection from './components/ColorsSection'
+import './App.scss'
 
 function App() {
   useEffect(() => {
@@ -21,10 +22,10 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
+    <main className="app-container">
       <CookingSection />
       <ColorsSection />
-    </div>
+    </main>
   )
 }
 

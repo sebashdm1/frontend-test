@@ -1,0 +1,7 @@
+@use './styles/globals.scss' as *;
+
+.app-container {
+  max-width: $container-max;
+  width: 100%;
+  @include container-padding;
+} 

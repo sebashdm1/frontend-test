@@ -1,216 +1,128 @@
-// Variables
-$background-dark: rgb(14, 20, 20);
-$text-white: #ffffff;
-$container-width: 1440px;
-$content-width: 1146px;
-$card-width: 375px;
-$card-min-height: 460px;
-$image-height: 300px;
-$copy-min-height: 130px;
-
-// Fonts
-$font-family: 'Open Sans', sans-serif;
-$font-light: 300;
-$font-bold: 700;
+@use '../../styles/globals.scss' as *;
 
 .colors-section {
-  background-color: $background-dark;
-  min-height: 793px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px 0;
-
   .colors-container {
-    max-width: $container-width;
-    width: 100%;
-    padding: 0 147px;
-
     .content {
-      max-width: $content-width;
+      max-width: $content-colors;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
 
       .headline {
-        margin-bottom: 60px;
+        margin-bottom: $spacing-lg;
         text-align: center;
-        width: auto;
-        min-width: 312px;
-        min-height: 63px;
-        border-bottom: 1px solid $text-white;
-        padding: 0 0 30px 0;
+        border-bottom: 1px solid var(--color-white);
+        padding-bottom: $spacing-md;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         align-items: center;
 
         h2 {
-          font-family: $font-family;
-          font-weight: $font-light;
-          font-size: 30px;
-          line-height: 33px;
-          letter-spacing: 1.5px;
-          color: $text-white;
+          color: var(--color-white);
           margin: 0;
           text-transform: uppercase;
         }
       }
 
       .card-list {
-        display: flex;
-        gap: 10px;
-        width: 100%;
-        justify-content: space-between;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $spacing-xs;
+        width: 375px;
+        justify-content: center;
 
         .card {
-          width: $card-width;
-          min-height: $card-min-height;
+          transition: transform 0.3s ease;
           display: flex;
           flex-direction: column;
-          flex-shrink: 0;
+          cursor: pointer;
 
           .card-image {
-            width: $card-width;
-            height: $image-height;
-            cursor: pointer;
+            width: 375px;
+            height: 300px;
             overflow: hidden;
-            flex-shrink: 0;
             position: relative;
 
             img {
               position: absolute;
               top: 0;
               left: 0;
-              width: $card-width;
-              height: $image-height;
+              width: 375px;
+              height: 300px;
               object-fit: cover;
               object-position: center;
-              transition: transform 0.3s ease;
               display: block;
-            }
-
-            &:hover img {
-              transform: scale(1.05);
             }
           }
 
           .copy {
-            width: $card-width;
-            min-height: $copy-min-height;
-            padding: 30px 20px 30px 20px;
+            padding: $spacing-md $spacing-sm;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
             text-align: center;
-            color: $text-white;
-            box-sizing: border-box;
+            color: var(--color-white);
             flex-grow: 1;
 
             h3 {
-              font-family: $font-family;
               font-weight: $font-bold;
-              font-size: 21px;
-              line-height: 30px;
-              margin: 0 0 10px 0;
-              width: 100%;
-              text-align: center;
+              margin: 0 0 $spacing-xs 0;
             }
 
             p {
-              font-family: $font-family;
-              font-weight: $font-light;
-              font-size: 21px;
-              line-height: 30px;
               margin: 0;
-              width: 100%;
-              text-align: center;
             }
           }
+
+          &:hover {
+            transform: scale(1.3);
+            border: solid 1px var(--color-white);
+            z-index: 1;
+            position: relative;
+          }
+        }
+
+        &:hover .card:not(:hover) {
+          filter: blur(3px);
         }
       }
     }
   }
 
-  // Responsive Design
-  @media (max-width: 768px) {
-    padding: 60px 20px;
-
+  // Mobile responsive
+  @media (max-width: $breakpoint-lg) {
     .colors-container {
-      padding: 0;
-
       .content {
-        .headline {
-          margin-bottom: 60px;
-
-          h2 {
-            font-size: 24px;
-            line-height: 28px;
-          }
-        }
-
         .card-list {
-          flex-direction: column;
-          gap: 30px;
+          grid-template-columns: 1fr;
+          gap: $spacing-md;
 
           .card {
-            width: 100%;
-            height: auto;
+            &:hover {
+              transform: none;
+              border: none;
+            }
 
             .card-image {
               width: 100%;
-              height: 250px;
+              
+              img {
+                width: 100%;
+              }
             }
 
             .copy {
               width: 100%;
-              height: auto;
-              padding: 20px;
-
-              h3 {
-                font-size: 18px;
-                line-height: 26px;
-              }
-
-              p {
-                font-size: 16px;
-                line-height: 24px;
-              }
+              padding: $spacing-sm;
             }
+          }
+
+          &:hover .card:not(:hover) {
+            filter: none;
           }
         }
       }
     }
   }
-
-  @media (max-width: 320px) {
-    .colors-container {
-      .content {
-        .card-list {
-          .card {
-            .card-image {
-              height: 200px;
-            }
-
-            .copy {
-              padding: 15px;
-
-              h3 {
-                font-size: 16px;
-                line-height: 22px;
-              }
-
-              p {
-                font-size: 14px;
-                line-height: 20px;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-} 
+}
