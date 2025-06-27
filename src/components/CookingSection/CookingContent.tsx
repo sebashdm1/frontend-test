@@ -1,10 +1,5 @@
-import type { AnchorClickHandler } from '../../types';
+import type { CookingContentProps } from '../../types';
 import { cookingContent } from '../../data/cooking';
-
-interface CookingContentProps {
-  className?: string;
-  onAnchorClick: AnchorClickHandler;
-}
 
 const CookingContent = ({ className = '', onAnchorClick }: CookingContentProps) => {
   return (

@@ -1,10 +1,5 @@
 import { useState } from 'react';
-import type { ColorType } from '../types';
-
-interface ModalState {
-  isOpen: boolean;
-  selectedImage: ColorType;
-}
+import type { ColorType, ModalState } from '../types';
 
 const DEFAULT_IMAGE: ColorType = 'red'; // fallback predeterminado
 

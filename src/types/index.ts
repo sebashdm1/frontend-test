@@ -1,4 +1,3 @@
-// Color types for the ColorsSection
 export type ColorType = 'red' | 'green' | 'white';
 
 export interface ColorCard {
@@ -16,19 +15,30 @@ export interface ColorCardProps {
   onImageClick: ImageClickHandler;
 }
 
-// Modal types - REFACTORED: No more null!
 export interface ImageModalProps {
   isOpen: boolean;
   imageName: ColorType;
   onClose: () => void;
 }
 
-// Event handler types
+export interface ModalState {
+  isOpen: boolean;
+  selectedImage: ColorType;
+}
+
 export type ImageClickHandler = (imageName: ColorType) => void;
 export type ModalCloseHandler = () => void;
 export type AnchorClickHandler = (linkName: string, href: string) => void;
 
-// CookingSection types
+export interface CookingImagesProps {
+  className?: string;
+}
+
+export interface CookingContentProps {
+  className?: string;
+  onAnchorClick: AnchorClickHandler;
+}
+
 export interface CookingImage {
   src: string;
   alt: string;
