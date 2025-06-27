@@ -1,0 +1,215 @@
+// Variables
+$background-dark: rgb(14, 20, 20);
+$text-white: #ffffff;
+$accent-red: rgb(207, 20, 48);
+$container-width: 1440px;
+$content-width: 362px;
+$images-width: 754px;
+
+// Fonts
+$font-family: 'Open Sans', sans-serif;
+$font-light: 300;
+$font-bold: 700;
+
+.cooking-section {
+  background-color: $background-dark;
+  min-height: 840px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0;
+
+  .cooking-container {
+    max-width: $container-width;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    padding: 0 147px;
+
+    .images-section {
+      width: $images-width;
+      height: 600px;
+      display: flex;
+      gap: 10px;
+
+      .image-left {
+        width: 372px;
+        height: 600px;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 0;
+        }
+      }
+
+      .images-right {
+        width: 372px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .image-top,
+        .image-bottom {
+          width: 372px;
+          height: 295px;
+          
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+          }
+        }
+      }
+    }
+
+    .content-section {
+      width: $content-width;
+      height: 577px;
+      color: $text-white;
+      display: flex;
+      flex-direction: column;
+
+      .headline {
+        margin-bottom: 30px;
+        border-bottom: 1px solid $text-white;
+        padding-bottom: 30px;
+
+        h2 {
+          font-family: $font-family;
+          font-weight: $font-light;
+          font-size: 30px;
+          line-height: 33px;
+          letter-spacing: 1.5px;
+          margin: 0;
+          text-align: left;
+        }
+      }
+
+      .body {
+        flex: 1;
+
+        p {
+          font-family: $font-family;
+          font-weight: $font-light;
+          font-size: 21px;
+          line-height: 30px;
+          margin: 0 0 30px 0;
+          text-align: left;
+        }
+
+        .call-out {
+          margin-top: 30px;
+
+          h3 {
+            font-family: $font-family;
+            font-weight: $font-bold;
+            font-size: 15px;
+            line-height: 21px;
+            color: $accent-red;
+            margin: 0 0 10px 0;
+            text-align: left;
+          }
+
+          > p {
+            font-family: $font-family;
+            font-weight: $font-bold;
+            font-size: 21px;
+            line-height: 30px;
+            margin: 0;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+
+    .cooking-container {
+      flex-direction: column;
+      gap: 40px;
+      padding: 0;
+
+      .images-section {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        gap: 20px;
+
+        .image-left {
+          width: 100%;
+          height: 300px;
+        }
+
+        .images-right {
+          width: 100%;
+
+          .image-top,
+          .image-bottom {
+            width: 100%;
+            height: 200px;
+          }
+        }
+      }
+
+      .content-section {
+        width: 100%;
+        height: auto;
+
+        .headline h2 {
+          font-size: 24px;
+          line-height: 28px;
+        }
+
+        .body p {
+          font-size: 18px;
+          line-height: 26px;
+        }
+
+        .call-out {
+          h3 {
+            font-size: 14px;
+            line-height: 20px;
+          }
+
+          > p {
+            font-size: 18px;
+            line-height: 26px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 320px) {
+    .cooking-container {
+      .content-section {
+        .headline h2 {
+          font-size: 20px;
+          line-height: 24px;
+        }
+
+        .body p {
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        .call-out {
+          h3 {
+            font-size: 13px;
+          }
+
+          > p {
+            font-size: 16px;
+            line-height: 24px;
+          }
+        }
+      }
+    }
+  }
+}
