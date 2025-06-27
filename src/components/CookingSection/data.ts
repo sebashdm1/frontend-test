@@ -1,4 +1,4 @@
-import type { CookingImage, CookingContent, CookingLink } from '../../types';
+import type { CookingImage, CookingContent } from '../../types';
 
 export const cookingImages: CookingImage[] = [
   {
