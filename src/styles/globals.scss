@@ -1,6 +1,4 @@
-// =============================================================================
-// GLOBAL RESET & BASE STYLES
-// =============================================================================
+@use './animations.scss';
 
 * {
   box-sizing: border-box;
@@ -8,23 +6,16 @@
   padding: 0;
 }
 
-// =============================================================================
-// DESIGN TOKENS
-// =============================================================================
-
-// Colors
 :root {
   --color-dark-bg: #0e1414;
   --color-white: #ffffff;
   --color-red-accent: #cf1430;
 }
 
-// Typography - Exact Zeplin specifications
 $font-family: 'Open Sans', sans-serif;
 $font-light: 300;
 $font-bold: 700;
 
-// Spacing System
 $spacing-xs: 10px;
 $spacing-sm: 20px; 
 $spacing-md: 30px;
@@ -33,21 +24,15 @@ $spacing-xl: 120px;
 $spacing-2xl: 147px;
 $spacing-3xl: 240px;
 
-// Container Sizes (from Zeplin)
 $container-max: 1440px;
 $content-cooking: 362px;
 $content-colors: 1146px;
 $images-cooking: 754px;
 
-// Breakpoints
 $breakpoint-lg: 1200px;
 $breakpoint-md: 800px;
 $breakpoint-sm: 768px;
 $breakpoint-xs: 320px;
-
-// =============================================================================
-// BASE STYLES
-// =============================================================================
 
 body {
   margin: 0;
@@ -59,10 +44,6 @@ body {
   display: flex;
   justify-content: center;
 }
-
-// =============================================================================
-// UTILITY MIXINS
-// =============================================================================
 
 @mixin container-padding {
   padding: $spacing-xl $spacing-2xl;
@@ -92,18 +73,13 @@ body {
   }
 }
 
-// =============================================================================
-// TYPOGRAPHY STYLES - EXACT ZEPLIN SPECS
-// =============================================================================
-
 h1, h2 {
-  // Exact Zeplin specs: OpenSans-Light, 30px, 300 weight, 33px line-height, 1.5px letter-spacing
   font-family: $font-family;
   font-size: 30px;
   font-weight: $font-light;
   line-height: 33px;
   letter-spacing: 1.5px;
-  margin-bottom: 0; // Remove default margin, controlled by container
+  margin-bottom: 0;
   
   @media (max-width: $breakpoint-sm) {
     font-size: 24px;
@@ -112,7 +88,6 @@ h1, h2 {
 }
 
 h3 {
-  // Exact Zeplin specs: OpenSans-Bold, 21px, 700 weight, 30px line-height
   font-family: $font-family;
   font-size: 21px;
   font-weight: $font-bold;
@@ -125,7 +100,6 @@ h3 {
 }
 
 p {
-  // Exact Zeplin specs: OpenSans-Light, 21px, 300 weight, 30px line-height
   font-family: $font-family;
   font-size: 21px;
   font-weight: $font-light;
@@ -137,7 +111,6 @@ p {
   }
 }
 
-// Red accent text - Exact Zeplin specs
 .text-red {
   color: var(--color-red-accent);
   font-family: $font-family;
@@ -147,7 +120,6 @@ p {
   text-align: left;
 }
 
-// HR styling
 hr {
   border: none;
   height: 1px;
@@ -155,27 +127,19 @@ hr {
   margin: 30px 0;
 }
 
-// =============================================================================
-// INTERACTIVE ELEMENTS FOR COLORS SECTION
-// =============================================================================
-
 .hover-scale {
   transition: transform 0.3s ease;
   
   &:hover {
     transform: scale(1.3);
     border: solid 1px var(--color-white);
-    z-index: 1;
+    z-index: 2;
   }
 }
 
 .hover-blur-others:hover .card:not(.hovered) {
   filter: blur(3px);
 }
-
-// =============================================================================
-// GRID LAYOUT FOR COLORS SECTION
-// =============================================================================
 
 .grid-colors {
   display: grid;

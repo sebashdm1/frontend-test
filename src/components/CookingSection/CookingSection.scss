@@ -3,10 +3,18 @@
 .cooking-section {
   @include section-spacing;
   
+  & {
+    overflow: hidden;
+  }
+  
   .cooking-container {
     display: grid;
     grid-template-columns: $images-cooking $content-cooking;
     gap: $spacing-md;
+    
+    & {
+      overflow: hidden;
+    }
     
     .images-section {
       display: grid;
@@ -15,10 +23,18 @@
       height: 600px;
       width: $images-cooking;
       
-      .image-left {
+      & {
+        overflow: hidden;
+      }
+      
+      .clear {
         grid-row: 1 / 3;
         width: 372px;
         height: 600px;
+        
+        & {
+          overflow: hidden;
+        }
         
         img {
           width: 100%;
@@ -33,11 +49,19 @@
         gap: 10px;
         width: 372px;
         height: 600px;
+        
+        & {
+          overflow: hidden;
+        }
 
         .image-top,
         .image-bottom {
           height: 295px;
           width: 372px;
+          
+          & {
+            overflow: hidden;
+          }
           
           img {
             width: 100%;
@@ -54,6 +78,10 @@
       flex-direction: column;
       width: $content-cooking;
       height: 577px;
+      
+      & {
+        overflow: hidden;
+      }
 
       .headline {
         width: 362px;
