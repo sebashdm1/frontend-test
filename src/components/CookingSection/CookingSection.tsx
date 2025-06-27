@@ -1,5 +1,6 @@
 import type { AnchorClickHandler } from '../../types';
 import { cookingImages, cookingContent } from './data';
+import { useStaggeredPageLoad } from '../../hooks/usePageLoadAnimation';
 import './CookingSection.scss';
 
 const CookingSection = () => {
@@ -9,15 +10,22 @@ const CookingSection = () => {
     console.log('Timestamp:', new Date().toISOString());
   };
 
+  // Use staggered animation for 3 main elements
+  const [containerLoaded, imagesLoaded, contentLoaded] = useStaggeredPageLoad(3, 100, 200);
+
   const leftImage = cookingImages.find(img => img.position === 'left');
   const rightTopImage = cookingImages.find(img => img.position === 'right-top'); 
   const rightBottomImage = cookingImages.find(img => img.position === 'right-bottom');
 
   return (
-    <section className="cooking-section">
+    <section 
+      className={`cooking-section ${containerLoaded ? 'animate-on-load is-visible' : 'animate-on-load'}`}
+    >
       <div className="cooking-container">
-        <div className="images-section">
-          <div className="image-left">
+        <div 
+          className={`images-section ${imagesLoaded ? 'animate-slide-right is-visible' : 'animate-slide-right'}`}
+        >
+          <div className="clear">
             {leftImage && (
               <img src={leftImage.src} alt={leftImage.alt} />
             )}
@@ -36,7 +44,9 @@ const CookingSection = () => {
           </div>
         </div>
         
-        <div className="content-section">
+        <div 
+          className={`content-section ${contentLoaded ? 'animate-slide-left is-visible' : 'animate-slide-left'}`}
+        >
           <div className="headline">
             <h2>{cookingContent.headline}</h2>
           </div>
