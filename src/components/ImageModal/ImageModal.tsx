@@ -3,7 +3,7 @@ import './ImageModal.scss';
 
 const ImageModal = ({ isOpen, imageName, onClose }: ImageModalProps) => {
   if (!isOpen) {
-    return <></>; // React Fragment vacío en lugar de null
+    return <></>;
   }
 
   return (

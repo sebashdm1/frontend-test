@@ -1,4 +1,12 @@
-export type ColorType = 'red' | 'green' | 'white';
+// Import types from constants to avoid magic strings
+import type { ColorType, CookingPositionType } from '../constants';
+
+// Re-export types for external use
+export type { ColorType, CookingPositionType };
+
+export type ImageClickHandler = (imageName: ColorType) => void;
+export type ModalCloseHandler = () => void;
+export type AnchorClickHandler = (linkName: string, href: string) => void;
 
 export interface ColorCard {
   id: ColorType;
@@ -15,34 +23,21 @@ export interface ColorCardProps {
   onImageClick: ImageClickHandler;
 }
 
-export interface ImageModalProps {
-  isOpen: boolean;
-  imageName: ColorType;
-  onClose: () => void;
-}
-
 export interface ModalState {
   isOpen: boolean;
   selectedImage: ColorType;
 }
 
-export type ImageClickHandler = (imageName: ColorType) => void;
-export type ModalCloseHandler = () => void;
-export type AnchorClickHandler = (linkName: string, href: string) => void;
-
-export interface CookingImagesProps {
-  className?: string;
-}
-
-export interface CookingContentProps {
-  className?: string;
-  onAnchorClick: AnchorClickHandler;
+export interface ImageModalProps {
+  isOpen: boolean;
+  imageName: ColorType;
+  onClose: ModalCloseHandler;
 }
 
 export interface CookingImage {
   src: string;
   alt: string;
-  position: 'left' | 'right-top' | 'right-bottom';
+  position: CookingPositionType;
 }
 
 export interface CookingContent {
@@ -52,6 +47,16 @@ export interface CookingContent {
     title: string;
     description: string;
   };
+}
+
+// Component Props
+export interface CookingImagesProps {
+  className?: string;
+}
+
+export interface CookingContentProps {
+  className?: string;
+  onAnchorClick: AnchorClickHandler;
 }
 
 

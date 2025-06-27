@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import type { ColorType, ModalState } from '../types';
+import { COLORS } from '../constants';
 
-const DEFAULT_IMAGE: ColorType = 'red'; // fallback predeterminado
+const DEFAULT_IMAGE: ColorType = COLORS.RED; // fallback predeterminado
 
 export const useImageModal = () => {
   const [modalState, setModalState] = useState<ModalState>({

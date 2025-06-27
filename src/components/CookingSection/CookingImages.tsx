@@ -1,10 +1,11 @@
 import type { CookingImagesProps } from '../../types';
 import { cookingImages } from '../../data/cooking';
+import { COOKING_POSITIONS } from '../../constants';
 
 const CookingImages = ({ className = '' }: CookingImagesProps) => {
-  const leftImage = cookingImages.find(img => img.position === 'left');
-  const rightTopImage = cookingImages.find(img => img.position === 'right-top'); 
-  const rightBottomImage = cookingImages.find(img => img.position === 'right-bottom');
+  const leftImage = cookingImages.find(img => img.position === COOKING_POSITIONS.LEFT);
+  const rightTopImage = cookingImages.find(img => img.position === COOKING_POSITIONS.RIGHT_TOP); 
+  const rightBottomImage = cookingImages.find(img => img.position === COOKING_POSITIONS.RIGHT_BOTTOM);
 
   return (
     <div className={`images-section ${className}`}>
