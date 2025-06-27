@@ -67,7 +67,7 @@ $font-bold: 700;
 
     .content-section {
       width: $content-width;
-      height: 577px;
+      min-height: 577px;
       color: $text-white;
       display: flex;
       flex-direction: column;
