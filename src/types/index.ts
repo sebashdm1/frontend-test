@@ -1,7 +1,6 @@
-// Import types from constants to avoid magic strings
-import type { ColorType, CookingPositionType } from '../constants';
+import type { ColorType } from '../constants/colors';
+import type { CookingPositionType } from '../constants/positions';
 
-// Re-export types for external use
 export type { ColorType, CookingPositionType };
 
 export type ImageClickHandler = (imageName: ColorType) => void;
@@ -49,7 +48,6 @@ export interface CookingContent {
   };
 }
 
-// Component Props
 export interface CookingImagesProps {
   className?: string;
 }

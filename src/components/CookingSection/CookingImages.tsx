@@ -1,6 +1,6 @@
 import type { CookingImagesProps } from '../../types';
 import { cookingImages } from '../../data/cooking';
-import { COOKING_POSITIONS } from '../../constants';
+import { COOKING_POSITIONS } from '../../constants/positions';
 
 const CookingImages = ({ className = '' }: CookingImagesProps) => {
   const leftImage = cookingImages.find(img => img.position === COOKING_POSITIONS.LEFT);

@@ -1,5 +1,5 @@
 import type { CookingImage, CookingContent } from '../types';
-import { COOKING_POSITIONS } from '../constants';
+import { COOKING_POSITIONS } from '../constants/positions';
 
 export const cookingImages: CookingImage[] = [
   {
