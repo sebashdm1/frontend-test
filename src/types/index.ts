@@ -55,6 +55,16 @@ export interface CookingImagesProps {
 export interface CookingContentProps {
   className?: string;
   onAnchorClick: AnchorClickHandler;
+  content?: CookingContent;
+}
+
+export interface ColorsSectionContent {
+  title: string;
+  cards: ColorCard[];
+}
+
+export interface ColorsSectionProps {
+  content?: ColorsSectionContent;
 }
 
 

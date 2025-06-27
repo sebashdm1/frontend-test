@@ -1,28 +1,30 @@
 import type { CookingContentProps } from '../../types';
-import { cookingContent } from '../../data/cooking';
+import { cookingContent as defaultContent } from '../../data/cooking';
 
-const CookingContent = ({ className = '', onAnchorClick }: CookingContentProps) => {
+const CookingContent = ({ className = '', onAnchorClick, content }: CookingContentProps) => {
+  const activeContent = content || defaultContent;
+  
   return (
     <article className={`content-section ${className}`} itemScope itemType="http://schema.org/Article">
       <header className="article-header">
-        <h2 itemProp="headline">{cookingContent.headline}</h2>
+        <h2 itemProp="headline">{activeContent.headline}</h2>
       </header>
       
       <div className="article-body" itemProp="articleBody">
-        <p>{cookingContent.mainText}</p>
+        <p>{activeContent.mainText}</p>
         
         <aside className="call-out" role="complementary">
           <a 
             href="#perfect-egg"
             onClick={(e) => {
               e.preventDefault();
-              onAnchorClick('THE PERFECT EGG', '#perfect-egg');
+              onAnchorClick(activeContent.callOut.title, '#perfect-egg');
             }}
             itemProp="relatedLink"
           >
-            <h3>{cookingContent.callOut.title}</h3>
+            <h3>{activeContent.callOut.title}</h3>
           </a>
-          <p>{cookingContent.callOut.description}</p>
+          <p>{activeContent.callOut.description}</p>
         </aside>
       </div>
     </article>

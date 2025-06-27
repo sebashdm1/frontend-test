@@ -29,18 +29,22 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: $spacing-xs;
-        width: 375px;
+        max-width: 1125px;
+        width: 100%;
         justify-content: center;
 
         .card {
           display: flex;
           flex-direction: column;
+          min-width: 0;
 
           .card-figure {
-            width: 375px;
-            height: 300px;
+            width: 100%;
+            max-width: 375px;
+            min-height: 300px;
             margin: 0;
             position: relative;
+            aspect-ratio: 5/4;
 
             .card-image-button {
               width: 100%;
@@ -57,8 +61,8 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 375px;
-                height: 300px;
+                width: 100%;
+                height: 100%;
                 object-fit: cover;
                 object-position: center;
                 display: block;
@@ -82,6 +86,7 @@
             text-align: center;
             color: var(--color-white);
             flex-grow: 1;
+            min-height: 100px;
 
             header {
               margin-bottom: $spacing-xs;
@@ -89,11 +94,16 @@
               h3 {
                 font-weight: $font-bold;
                 margin: 0;
+                word-wrap: break-word;
+                hyphens: auto;
               }
             }
 
             p {
               margin: 0;
+              word-wrap: break-word;
+              hyphens: auto;
+              line-height: 1.4;
             }
           }
         }

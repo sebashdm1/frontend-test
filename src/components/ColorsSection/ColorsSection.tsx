@@ -1,12 +1,13 @@
-import type { ImageClickHandler } from '../../types';
+import type { ImageClickHandler, ColorsSectionProps } from '../../types';
 import { useImageModal } from '../../hooks/useImageModal';
 import ImageModal from '../ImageModal/ImageModal';
 import ColorCard from './ColorCard';
-import { colorCardsData } from '../../data/colorCards';
+import { colorsSectionContent as defaultContent } from '../../data/colorCards';
 import './ColorsSection.scss';
 
-const ColorsSection = () => {
+const ColorsSection = ({ content }: ColorsSectionProps) => {
   const { isModalOpen, selectedImage, openModal, closeModal } = useImageModal();
+  const activeContent = content || defaultContent;
 
   const handleImageClick: ImageClickHandler = (imageName) => {
     openModal(imageName);
@@ -17,11 +18,11 @@ const ColorsSection = () => {
       <div className="colors-container">
         <div className="content">
           <header className="section-header">
-            <h2 itemProp="name">TASTE THE COLOURS</h2>
+            <h2 itemProp="name">{activeContent.title}</h2>
           </header>
           
           <div className="card-list" role="list" itemProp="itemListElement">
-            {colorCardsData.map((card) => (
+            {activeContent.cards.map((card) => (
               <ColorCard
                 key={card.id}
                 id={card.id}
