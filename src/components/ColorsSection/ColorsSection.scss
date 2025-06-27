@@ -1,0 +1,217 @@
+// Variables
+$background-dark: rgb(14, 20, 20);
+$text-white: #ffffff;
+$container-width: 1440px;
+$content-width: 1146px;
+$card-width: 375px;
+$card-height: 460px;
+$image-height: 300px;
+$copy-height: 130px;
+
+// Fonts
+$font-family: 'Open Sans', sans-serif;
+$font-light: 300;
+$font-bold: 700;
+
+.colors-section {
+  background-color: $background-dark;
+  min-height: 793px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+
+  .colors-container {
+    max-width: $container-width;
+    width: 100%;
+    padding: 0 147px;
+
+    .content {
+      max-width: $content-width;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .headline {
+        margin-bottom: 60px;
+        text-align: center;
+        width: auto;
+        min-width: 312px;
+        height: 63px;
+        border-bottom: 1px solid $text-white;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        h2 {
+          font-family: $font-family;
+          font-weight: $font-light;
+          font-size: 30px;
+          line-height: 33px;
+          letter-spacing: 1.5px;
+          color: $text-white;
+          margin: 0;
+          height: 33px;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      .card-list {
+        display: flex;
+        gap: 0;
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .card {
+          width: $card-width;
+          height: $card-height;
+          display: flex;
+          flex-direction: column;
+          flex-shrink: 0;
+
+          .card-image {
+            width: $card-width;
+            height: $image-height;
+            cursor: pointer;
+            overflow: hidden;
+            flex-shrink: 0;
+            position: relative;
+
+            img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: $card-width;
+              height: $image-height;
+              object-fit: cover;
+              object-position: center;
+              transition: transform 0.3s ease;
+              display: block;
+            }
+
+            &:hover img {
+              transform: scale(1.05);
+            }
+          }
+
+          .copy {
+            width: $card-width;
+            height: $copy-height;
+            padding: 30px 20px 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            color: $text-white;
+            box-sizing: border-box;
+
+            h3 {
+              font-family: $font-family;
+              font-weight: $font-bold;
+              font-size: 21px;
+              line-height: 30px;
+              margin: 0 0 10px 0;
+              width: 100%;
+              text-align: center;
+            }
+
+            p {
+              font-family: $font-family;
+              font-weight: $font-light;
+              font-size: 21px;
+              line-height: 30px;
+              margin: 0;
+              width: 100%;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+
+    .colors-container {
+      padding: 0;
+
+      .content {
+        .headline {
+          margin-bottom: 60px;
+
+          h2 {
+            font-size: 24px;
+            line-height: 28px;
+          }
+        }
+
+        .card-list {
+          flex-direction: column;
+          gap: 30px;
+
+          .card {
+            width: 100%;
+            height: auto;
+
+            .card-image {
+              width: 100%;
+              height: 250px;
+            }
+
+            .copy {
+              width: 100%;
+              height: auto;
+              padding: 20px;
+
+              h3 {
+                font-size: 18px;
+                line-height: 26px;
+              }
+
+              p {
+                font-size: 16px;
+                line-height: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 320px) {
+    .colors-container {
+      .content {
+        .card-list {
+          .card {
+            .card-image {
+              height: 200px;
+            }
+
+            .copy {
+              padding: 15px;
+
+              h3 {
+                font-size: 16px;
+                line-height: 22px;
+              }
+
+              p {
+                font-size: 14px;
+                line-height: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+} 
