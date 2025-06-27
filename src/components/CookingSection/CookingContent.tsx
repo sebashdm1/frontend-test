@@ -8,28 +8,29 @@ interface CookingContentProps {
 
 const CookingContent = ({ className = '', onAnchorClick }: CookingContentProps) => {
   return (
-    <div className={`content-section ${className}`}>
-      <div className="headline">
-        <h2>{cookingContent.headline}</h2>
-      </div>
+    <article className={`content-section ${className}`} itemScope itemType="http://schema.org/Article">
+      <header className="article-header">
+        <h2 itemProp="headline">{cookingContent.headline}</h2>
+      </header>
       
-      <div className="body">
+      <div className="article-body" itemProp="articleBody">
         <p>{cookingContent.mainText}</p>
         
-        <div className="call-out">
+        <aside className="call-out" role="complementary">
           <a 
             href="#perfect-egg"
             onClick={(e) => {
               e.preventDefault();
               onAnchorClick('THE PERFECT EGG', '#perfect-egg');
             }}
+            itemProp="relatedLink"
           >
             <h3>{cookingContent.callOut.title}</h3>
           </a>
           <p>{cookingContent.callOut.description}</p>
-        </div>
+        </aside>
       </div>
-    </div>
+    </article>
   );
 };
 

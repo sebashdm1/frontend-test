@@ -17,15 +17,15 @@ const ColorsSection = () => {
   };
 
   return (
-    <section className="colors-section">
+    <section className="colors-section" itemScope itemType="http://schema.org/ItemList">
       <div className="colors-container">
         <div className="content">
-          <div className="headline">
-            <h2>TASTE THE COLOURS</h2>
-          </div>
+          <header className="section-header">
+            <h2 itemProp="name">TASTE THE COLOURS</h2>
+          </header>
           
-          <div className="card-list">
-            {colorCardsData.map((card) => (
+          <div className="card-list" role="list" itemProp="itemListElement">
+            {colorCardsData.map((card, index) => (
               <ColorCard
                 key={card.id}
                 id={card.id}
