@@ -31,11 +31,6 @@ const CookingSection = () => {
             <div className="call-out">
               <h3>THE PERFECT EGG</h3>
               <p>Keep water between 67 and 68°C for a flavourful, tender yolk</p>
-              <div className="all-the-latest">
-                <a href="#molecular-gastronomy">Learn about Molecular Gastronomy</a>
-                <a href="#cooking-techniques">Explore Cooking Techniques</a>
-                <a href="#food-science">Discover Food Science</a>
-              </div>
             </div>
           </div>
         </div>
