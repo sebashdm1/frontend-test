@@ -7,7 +7,7 @@ const ImageModal = ({ isOpen, imageName, onClose }: ImageModalProps) => {
   }
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay" onClick={onClose} data-testid="modal-overlay">
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button 
           className="modal-close" 
