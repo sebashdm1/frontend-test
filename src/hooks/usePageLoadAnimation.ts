@@ -20,7 +20,8 @@ export const useStaggeredPageLoad = (itemCount: number, baseDelay: number = 200,
   const [loadedItems, setLoadedItems] = useState<boolean[]>(new Array(itemCount).fill(false));
 
   useEffect(() => {
-    // Trigger each item with staggered timing
+    const timers: NodeJS.Timeout[] = [];
+
     for (let i = 0; i < itemCount; i++) {
       const timer = setTimeout(() => {
         setLoadedItems(prev => {
@@ -29,14 +30,12 @@ export const useStaggeredPageLoad = (itemCount: number, baseDelay: number = 200,
           return newState;
         });
       }, baseDelay + (i * staggerDelay));
+      
+      timers.push(timer);
     }
 
-    // Cleanup function
     return () => {
-      // Clear any pending timeouts
-      for (let i = 0; i < itemCount; i++) {
-        clearTimeout(baseDelay + (i * staggerDelay));
-      }
+      timers.forEach(timer => clearTimeout(timer));
     };
   }, [itemCount, baseDelay, staggerDelay]);
 
