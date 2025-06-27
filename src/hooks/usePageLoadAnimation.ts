@@ -4,7 +4,6 @@ export const usePageLoadAnimation = (delay: number = 100) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Trigger animation after a small delay to ensure DOM is ready
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, delay);
@@ -15,12 +14,11 @@ export const usePageLoadAnimation = (delay: number = 100) => {
   return isLoaded;
 };
 
-// Hook for staggered page load animations
 export const useStaggeredPageLoad = (itemCount: number, baseDelay: number = 200, staggerDelay: number = 150) => {
   const [loadedItems, setLoadedItems] = useState<boolean[]>(new Array(itemCount).fill(false));
 
   useEffect(() => {
-    const timers: NodeJS.Timeout[] = [];
+    const timers: number[] = [];
 
     for (let i = 0; i < itemCount; i++) {
       const timer = setTimeout(() => {
