@@ -115,12 +115,53 @@
     .colors-container {
       .content {
         .card-list {
-          grid-template-columns: 1fr;
-          gap: $spacing-md;
+          grid-template-columns: repeat(2, 1fr);
+          gap: $spacing-sm;
+          max-width: 800px;
 
           .card {
             .card-figure {
               width: 100%;
+              min-height: 250px;
+              
+              .card-image-button {
+                width: 100%;
+                
+                &:hover,
+                &:focus {
+                  transform: scale(1.02);
+                }
+                
+                img {
+                  width: 100%;
+                }
+              }
+            }
+
+            .card-content {
+              width: 100%;
+              padding: $spacing-sm;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    .colors-container {
+      .content {
+        .card-list {
+          grid-template-columns: 1fr;
+          gap: $spacing-md;
+          max-width: 400px;
+
+          .card {
+            .card-figure {
+              width: 100%;
+              min-height: 280px;
+              max-width: 400px;
+              margin: 0 auto;
               
               .card-image-button {
                 width: 100%;
