@@ -77,15 +77,11 @@
       display: flex;
       flex-direction: column;
       width: $content-cooking;
-      height: 577px;
+      min-height: 577px;
       
-      & {
-        overflow: hidden;
-      }
-
-      .headline {
-        width: 362px;
-        height: 96px;
+      .article-header {
+        max-width: 362px;
+        min-height: 96px;
         border-bottom: 1px solid var(--color-white);
         padding-bottom: 30px;
         margin-bottom: 30px;
@@ -94,17 +90,22 @@
 
         h2 {
           margin: 0;
+          word-wrap: break-word;
+          hyphens: auto;
         }
       }
 
-      .body {
-        width: 362px;
-        height: 451px;
+      .article-body {
+        max-width: 362px;
+        min-height: 451px;
         display: flex;
         flex-direction: column;
+        flex: 1;
 
         p {
           margin: 0 0 30px 0;
+          word-wrap: break-word;
+          hyphens: auto;
           
           &:last-of-type {
             margin-bottom: 30px;
@@ -112,8 +113,8 @@
         }
 
         .call-out {
-          width: 362px;
-          height: 91px;
+          max-width: 362px;
+          min-height: 91px;
           margin-top: auto;
           
           a {
@@ -170,20 +171,20 @@
       
       .content-section {
         width: 100%;
-        height: auto;
+        min-height: auto;
         
-        .headline {
-          width: 100%;
-          height: auto;
+        .article-header {
+          max-width: 100%;
+          min-height: auto;
         }
         
-        .body {
-          width: 100%;
-          height: auto;
+        .article-body {
+          max-width: 100%;
+          min-height: auto;
           
           .call-out {
-            width: 100%;
-            height: auto;
+            max-width: 100%;
+            min-height: auto;
           }
         }
       }
@@ -198,17 +199,17 @@
         width: 100%;
         
         .image-left {
+          width: 80%;
           height: 300px;
-          width: 100%;
         }
         
         .images-right {
-          width: 100%;
+          width: 80%;
           
           .image-top,
           .image-bottom {
-            height: 200px;
             width: 100%;
+            height: 150px;
           }
         }
       }
@@ -218,12 +219,12 @@
         align-self: center;
         height: auto;
         
-        .headline {
+        .article-header {
           width: 100%;
           height: auto;
         }
         
-        .body {
+        .article-body {
           width: 100%;
           height: auto;
           

@@ -1,6 +1,7 @@
-// Application-wide color constants
 export const COLORS = {
   RED: 'red',
   GREEN: 'green',
   WHITE: 'white'
-} as const; 
+} as const;
+
+export type ColorType = typeof COLORS[keyof typeof COLORS]; 

@@ -1,45 +1,46 @@
-import { useState } from 'react';
-import type { ColorType, ImageClickHandler, ModalCloseHandler } from '../../types';
-import ImageModal from '../ImageModal';
-import { colorCardsData } from './data';
+import type { ImageClickHandler, ColorsSectionProps } from '../../types';
+import { useImageModal } from '../../hooks/useImageModal';
+import ImageModal from '../ImageModal/ImageModal';
+import ColorCard from './ColorCard';
+import { colorsSectionContent as defaultContent } from '../../data/colorCards';
 import './ColorsSection.scss';
 
-const ColorsSection = () => {
-  const [selectedImage, setSelectedImage] = useState<ColorType | null>(null);
+const ColorsSection = ({ content }: ColorsSectionProps) => {
+  const { isModalOpen, selectedImage, openModal, closeModal } = useImageModal();
+  const activeContent = content || defaultContent;
 
   const handleImageClick: ImageClickHandler = (imageName) => {
-    setSelectedImage(imageName);
-  };
-
-  const closeModal: ModalCloseHandler = () => {
-    setSelectedImage(null);
+    openModal(imageName);
   };
 
   return (
-    <section className="colors-section">
+    <section className="colors-section" itemScope itemType="http://schema.org/ItemList">
       <div className="colors-container">
         <div className="content">
-          <div className="headline">
-            <h2>TASTE THE COLOURS</h2>
-          </div>
+          <header className="section-header">
+            <h2 itemProp="name">{activeContent.title}</h2>
+          </header>
           
-          <div className="card-list">
-            {colorCardsData.map((card) => (
-              <div key={card.id} className="card">
-                <div className="card-image" onClick={() => handleImageClick(card.id)}>
-                  <img src={card.imagePath} alt={`${card.title} food items`} />
-                </div>
-                <div className="copy">
-                  <h3>{card.title}</h3>
-                  <p>{card.description}</p>
-                </div>
-              </div>
+          <div className="card-list" role="list" itemProp="itemListElement">
+            {activeContent.cards.map((card) => (
+              <ColorCard
+                key={card.id}
+                id={card.id}
+                imagePath={card.imagePath}
+                title={card.title}
+                description={card.description}
+                onImageClick={handleImageClick}
+              />
             ))}
           </div>
         </div>
       </div>
 
-      <ImageModal imageName={selectedImage} onClose={closeModal} />
+      <ImageModal 
+        isOpen={isModalOpen}
+        imageName={selectedImage} 
+        onClose={closeModal} 
+      />
     </section>
   );
 };

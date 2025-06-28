@@ -1,20 +1,21 @@
-import type { CookingImage, CookingContent } from '../../types';
+import type { CookingImage, CookingContent } from '../types';
+import { COOKING_POSITIONS } from '../constants/positions';
 
 export const cookingImages: CookingImage[] = [
   {
     src: '/images/cooking-left.png',
     alt: 'Cooking ingredients and preparation',
-    position: 'left'
+    position: COOKING_POSITIONS.LEFT
   },
   {
     src: '/images/cooking-right-top.png', 
     alt: 'Cooking process',
-    position: 'right-top'
+    position: COOKING_POSITIONS.RIGHT_TOP
   },
   {
     src: '/images/cooking-right-bottom.png',
     alt: 'Final cooking result', 
-    position: 'right-bottom'
+    position: COOKING_POSITIONS.RIGHT_BOTTOM
   }
 ];
 
@@ -25,6 +26,4 @@ export const cookingContent: CookingContent = {
     title: 'THE PERFECT EGG',
     description: 'Keep water between 67 and 68°C for a flavourful, tender yolk'
   }
-};
-
- 
+}; 

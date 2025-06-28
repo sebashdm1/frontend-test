@@ -1,5 +1,5 @@
-import type { ColorCard } from '../../types';
-import { COLORS } from '../../constants/colors';
+import type { ColorCard, ColorsSectionContent } from '../types';
+import { COLORS } from '../constants/colors';
 
 export const colorCardsData: ColorCard[] = [
   {
@@ -20,4 +20,9 @@ export const colorCardsData: ColorCard[] = [
     description: 'White foods evoke memories of salt and salty flavours, driving the expectation of a savoury treat.',
     imagePath: '/images/white.png'
   }
-]; 
+];
+
+export const colorsSectionContent: ColorsSectionContent = {
+  title: 'TASTE THE COLOURS',
+  cards: colorCardsData
+}; 

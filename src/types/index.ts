@@ -1,5 +1,11 @@
-// Color types for the ColorsSection
-export type ColorType = 'red' | 'green' | 'white';
+import type { ColorType } from '../constants/colors';
+import type { CookingPositionType } from '../constants/positions';
+
+export type { ColorType, CookingPositionType };
+
+export type ImageClickHandler = (imageName: ColorType) => void;
+export type ModalCloseHandler = () => void;
+export type AnchorClickHandler = (linkName: string, href: string) => void;
 
 export interface ColorCard {
   id: ColorType;
@@ -8,22 +14,29 @@ export interface ColorCard {
   imagePath: string;
 }
 
-// Modal types
-export interface ImageModalProps {
-  imageName: ColorType | null;
-  onClose: () => void;
+export interface ColorCardProps {
+  id: ColorType;
+  imagePath: string;
+  title: string;
+  description: string;
+  onImageClick: ImageClickHandler;
 }
 
-// Event handler types
-export type ImageClickHandler = (imageName: ColorType) => void;
-export type ModalCloseHandler = () => void;
-export type AnchorClickHandler = (linkName: string, href: string) => void;
+export interface ModalState {
+  isOpen: boolean;
+  selectedImage: ColorType;
+}
 
-// CookingSection types
+export interface ImageModalProps {
+  isOpen: boolean;
+  imageName: ColorType;
+  onClose: ModalCloseHandler;
+}
+
 export interface CookingImage {
   src: string;
   alt: string;
-  position: 'left' | 'right-top' | 'right-bottom';
+  position: CookingPositionType;
 }
 
 export interface CookingContent {
@@ -33,6 +46,25 @@ export interface CookingContent {
     title: string;
     description: string;
   };
+}
+
+export interface CookingImagesProps {
+  className?: string;
+}
+
+export interface CookingContentProps {
+  className?: string;
+  onAnchorClick: AnchorClickHandler;
+  content?: CookingContent;
+}
+
+export interface ColorsSectionContent {
+  title: string;
+  cards: ColorCard[];
+}
+
+export interface ColorsSectionProps {
+  content?: ColorsSectionContent;
 }
 
 
