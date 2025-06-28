@@ -67,4 +67,8 @@ export interface ColorsSectionProps {
   content?: ColorsSectionContent;
 }
 
+export interface CookingSectionProps {
+  content?: CookingContent;
+}
+
 

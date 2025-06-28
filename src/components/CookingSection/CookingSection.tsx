@@ -1,10 +1,10 @@
-import type { AnchorClickHandler } from '../../types';
+import type { AnchorClickHandler, CookingSectionProps } from '../../types';
 import { useStaggeredPageLoad } from '../../hooks/usePageLoadAnimation';
 import CookingImages from './CookingImages';
 import CookingContent from './CookingContent';
 import './CookingSection.scss';
 
-const CookingSection = () => {
+const CookingSection = ({ content }: CookingSectionProps) => {
   const handleAnchorClick: AnchorClickHandler = (linkName, href) => {
     console.log('Anchor clicked:', linkName);
     console.log('Anchor href:', href);
@@ -25,6 +25,7 @@ const CookingSection = () => {
         <CookingContent 
           className={`${contentLoaded ? 'animate-slide-left is-visible' : 'animate-slide-left'}`}
           onAnchorClick={handleAnchorClick}
+          content={content}
         />
       </div>
     </section>

@@ -77,7 +77,7 @@
       display: flex;
       flex-direction: column;
       width: $content-cooking;
-      min-height: 577px;
+      min-height: 520px;
       
       .article-header {
         max-width: 362px;
@@ -116,6 +116,7 @@
           max-width: 362px;
           min-height: 91px;
           margin-top: auto;
+          margin-bottom: 60px;
           
           a {
             text-decoration: none;
