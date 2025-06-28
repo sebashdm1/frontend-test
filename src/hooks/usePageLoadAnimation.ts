@@ -6,7 +6,7 @@ export const usePageLoadAnimation = (delay: number = 100) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoaded(true);
-    }, delay);
+    }, Math.max(0, delay));
 
     return () => clearTimeout(timer);
   }, [delay]);
@@ -15,19 +15,26 @@ export const usePageLoadAnimation = (delay: number = 100) => {
 };
 
 export const useStaggeredPageLoad = (itemCount: number, baseDelay: number = 200, staggerDelay: number = 150) => {
-  const [loadedItems, setLoadedItems] = useState<boolean[]>(new Array(itemCount).fill(false));
+  const safeItemCount = Math.max(0, itemCount);
+  const [loadedItems, setLoadedItems] = useState<boolean[]>(new Array(safeItemCount).fill(false));
 
   useEffect(() => {
+    setLoadedItems(new Array(safeItemCount).fill(false));
+    
+    if (safeItemCount === 0) return;
+
     const timers: number[] = [];
 
-    for (let i = 0; i < itemCount; i++) {
+    for (let i = 0; i < safeItemCount; i++) {
       const timer = setTimeout(() => {
         setLoadedItems(prev => {
           const newState = [...prev];
-          newState[i] = true;
+          if (newState[i] !== undefined) {
+            newState[i] = true;
+          }
           return newState;
         });
-      }, baseDelay + (i * staggerDelay));
+      }, Math.max(0, baseDelay) + (i * Math.max(0, staggerDelay)));
       
       timers.push(timer);
     }
@@ -35,7 +42,7 @@ export const useStaggeredPageLoad = (itemCount: number, baseDelay: number = 200,
     return () => {
       timers.forEach(timer => clearTimeout(timer));
     };
-  }, [itemCount, baseDelay, staggerDelay]);
+  }, [safeItemCount, baseDelay, staggerDelay]);
 
   return loadedItems;
 }; 
