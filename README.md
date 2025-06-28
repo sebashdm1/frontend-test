@@ -4,6 +4,47 @@
 
 Interactive frontend application showcasing cooking and color sections with responsive design, anchor tracking, and image modals.
 
+## 🚀 Getting Started
+
+### **Prerequisites**
+- Node.js 18+ 
+- npm or yarn
+
+### **Installation & Setup**
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/frontend-test.git
+   cd frontend-test
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in browser**
+   ```
+   http://localhost:5173
+   ```
+
+### **Available Scripts**
+
+```bash
+npm run dev        # Start development server
+npm run build      # Create production build
+npm run preview    # Preview production build
+npm run lint       # Run ESLint
+npm run test       # Run test suite
+npm run test:ui    # Run tests with UI
+npm run test:run   # Run tests once
+```
+
 ## 🏗️ Technical Architecture
 
 ### **Stack Decisions**
