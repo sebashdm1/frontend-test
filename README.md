@@ -14,8 +14,7 @@ Interactive frontend application showcasing cooking and color sections with resp
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/frontend-test.git
-   cd frontend-test
+   https://github.com/sebashdm1/frontend-test.git
    ```
 
 2. **Install dependencies**
@@ -32,18 +31,6 @@ Interactive frontend application showcasing cooking and color sections with resp
    ```
    http://localhost:5173
    ```
-
-### **Available Scripts**
-
-```bash
-npm run dev        # Start development server
-npm run build      # Create production build
-npm run preview    # Preview production build
-npm run lint       # Run ESLint
-npm run test       # Run test suite
-npm run test:ui    # Run tests with UI
-npm run test:run   # Run tests once
-```
 
 ## 🏗️ Technical Architecture
 
@@ -95,55 +82,6 @@ npm run test:run   # Run tests once
   - Spacing: Precise gaps and padding from design
 
 
-**Breakpoints:**
-- Desktop: 1440px+ (primary design)
-- Tablet: 768px - 1439px
-- Mobile: 320px - 767px
-
-
-## 🎯 Feature Implementation
-
-### **1. "Cooking Section" (Anchor Tracking)**
-
-```typescript
-const handleAnchorClick: AnchorClickHandler = (linkName, href) => {
-  console.log('Anchor clicked:', linkName);
-  console.log('Anchor href:', href);
-  console.log('Timestamp:', new Date().toISOString());
-};
-```
-
-**Requirements met:**
-- ✅ Anchor tags implemented
-- ✅ Click tracking with console logging
-- ✅ Accessible link behavior
-
-### **2. "Colors Section" (Image Modals)**
-
-```typescript
-const [selectedImage, setSelectedImage] = useState<ColorType | null>(null);
-
-const handleImageClick: ImageClickHandler = (imageName) => {
-  setSelectedImage(imageName);
-};
-```
-
-### **3. CMS-Ready Architecture**
-
-All content areas use flexible layouts:
-
-```scss
-.content-section {
-  min-height: 577px;  // Minimum design height
-  // Content can expand beyond this
-}
-
-.copy {
-  min-height: 130px;  // Ensures minimum visual consistency
-  flex-grow: 1;       // Expands with longer content
-}
-```
-
 ## 🔧 Development Workflow
 
 ### **Code Quality**
@@ -152,12 +90,6 @@ All content areas use flexible layouts:
 - Comprehensive type definitions
 - SCSS organized with variables
 
-### **Build Process**
-```bash
-npm run dev     # Development server
-npm run build   # Production build
-npm run preview # Preview production build
-```
 
 ## 🚀 Deployment
 
