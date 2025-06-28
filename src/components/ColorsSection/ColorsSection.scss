@@ -51,11 +51,11 @@
               height: 100%;
               overflow: hidden;
               position: relative;
-              cursor: pointer;
               border: none;
               padding: 0;
               background: none;
               transition: transform 0.3s ease;
+              cursor: pointer;
 
               img {
                 position: absolute;
@@ -68,12 +68,15 @@
                 display: block;
               }
 
-              &:hover,
-              &:focus {
-                transform: scale(1.05);
-                z-index: 1;
-                outline: 2px solid var(--color-white);
-                outline-offset: 2px;
+              // Hover effects only on desktop
+              @media (hover: hover) and (pointer: fine) {
+                &:hover,
+                &:focus {
+                  transform: scale(1.05);
+                  z-index: 1;
+                  outline: 2px solid var(--color-white);
+                  outline-offset: 2px;
+                }
               }
             }
           }
@@ -127,9 +130,11 @@
               .card-image-button {
                 width: 100%;
                 
-                &:hover,
-                &:focus {
-                  transform: scale(1.02);
+                @media (hover: hover) and (pointer: fine) {
+                  &:hover,
+                  &:focus {
+                    transform: scale(1.02);
+                  }
                 }
                 
                 img {
@@ -148,6 +153,7 @@
     }
   }
 
+  // Mobile: disable interactions completely
   @media (max-width: $breakpoint-sm) {
     .colors-container {
       .content {
@@ -165,11 +171,8 @@
               
               .card-image-button {
                 width: 100%;
-                
-                &:hover,
-                &:focus {
-                  transform: none;
-                }
+                cursor: default;
+                pointer-events: none; // Disable clicks on mobile
                 
                 img {
                   width: 100%;
